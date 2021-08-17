@@ -2,19 +2,20 @@ const About = () => {
   return (
     <>
       <div className="about">
+        <br />
         This Project was made me (
         <a
           rel="noreferrer"
           className="social"
-          href="github.com/tnmyk"
+          href="https://github.com/tnmyk"
           target="_blank"
         >
           @tnmyk
         </a>
         ) mainly within 12 hours as a challenge to brush up my React.js skills.
-        <br /> <br /> <br />
+        <br /> <br />
         <br />
-        <br />
+        
         <a
           rel="noreferrer"
           className="social"
@@ -23,7 +24,8 @@ const About = () => {
         >
           Github Repo for this project
         </a>{" "}
-        <br /> <br />
+        <br /> 
+        {/* <br /> */}
         <a
           rel="noreferrer"
           className="social"
