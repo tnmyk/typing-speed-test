@@ -6,7 +6,7 @@ const Nav = () => {
         <div className="logo">Typing Speed Test</div>
       </Link>
       <div className="nav-links">
-        <Link to="/about">About</Link>
+        <Link to="/about">About this app</Link>
       </div>
     </nav>
   );
