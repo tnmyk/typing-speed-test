@@ -58,8 +58,8 @@ const Home = () => {
       }
       else{
         setNewRecord(false);
+        setHighest(Number(localStorage.getItem("highest")));
       }
-      else setHighest(Number(localStorage.getItem("highest")));
       timerClearer();
       setInputValue("");
       return;
