@@ -27,6 +27,7 @@ const Home = () => {
   const [checked, setChecked] = useState(15);
   const [highest, setHighest] = useState(0);
   const [last, setLast] = useState(0);
+  const [newRecord,setNewRecord] = useState(false);
   const inputRef = useRef(null);
 
   const getRandomWords = (n) => {
@@ -37,7 +38,7 @@ const Home = () => {
   };
   useEffect(() => {
     const localhigest = localStorage.getItem("highest");
-    if (localhigest) setHighest(localhigest);
+    if (localhigest) setHighest(Number(localhigest));
     const localChecked = localStorage.getItem("checked");
     if (localChecked) setChecked(Number(localChecked));
     getRandomWords(localChecked);
@@ -51,7 +52,13 @@ const Home = () => {
       handleSubmit(tempInput);
       setLast(speed)
       localStorage.setItem("highest", Math.max(highest, speed));
-      if (highest < speed) setHighest(speed + "(New record!)");
+      if (highest < speed) {
+        setHighest(speed)
+        setNewRecord(true);
+      }
+      else{
+        setNewRecord(false);
+      }
       else setHighest(Number(localStorage.getItem("highest")));
       timerClearer();
       setInputValue("");
@@ -169,7 +176,7 @@ const Home = () => {
             {" "}
             Current speed (WPM): {speed}{" "}
             <span className="highest">Last Round: {last}</span>
-            <span className="highest">Highest: {highest}</span>
+            <span className="highest">Highest: {highest} {newRecord && "(New record!)" }</span>
           </span>
           <span className="speed accuracy"> Accuracy: {accuracy}%</span>
           {sentenceArr.map((word, index) => {
